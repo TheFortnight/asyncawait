@@ -1,20 +1,13 @@
 import GameSavingLoader from "./gamesavingloader.js";
 
 async function saveGame(){
-  return new Promise ((resolve, reject) => {
-    try {
-      GameSavingLoader.load()
-      .then((result)=>{
-        console.log(result);
-        resolve(result);        
-      })
-      .catch((err) => {
-        reject(err);
-      });
-    } catch(e) {
-      console.log(e.message);
-    }
-  });
+  return GameSavingLoader.load().then((saving) => {
+  console.log(JSON.stringify(saving));
+  return saving;
+}, (error) => {
+  console.log('ERROR: '+ error);
+});
 }
 
 saveGame();
+

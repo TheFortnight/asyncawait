@@ -1,4 +1,4 @@
-export default class gameSaving {
+export default class GameSaving {
     constructor(data){
         
             this.id = data.id// id сохранения
